@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "81s-govi"
-    key    = "workspaces"
-    region = "us-east-1"
+    bucket         = "81s-govi"
+    key            = "workspaces"
+    region         = "us-east-1"
     dynamodb_table = "81s-locking"
   }
 }
