@@ -4,11 +4,11 @@ resource "aws_instance" "expense" {
   ami                    = "ami-09c813fb71547fc4f" # This AMI id may change over the time
   instance_type          = each.value
   vpc_security_group_ids = [aws_security_group.allow_ssh_terrform.id]
-  tags = merge (
+  tags = merge(
     var.common_tags,
     var.tags,
     {
-        Name = each.key
+      Name = each.key
     }
   )
 }
@@ -34,13 +34,13 @@ resource "aws_security_group" "allow_ssh_terrform" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = merge (
+  tags = merge(
     var.common_tags,
     var.tags,
     {
-        Name = "allow_ssh_${var.environment}"
+      Name = "allow_ssh_${var.environment}"
     }
   )
-  
+
 
 }
